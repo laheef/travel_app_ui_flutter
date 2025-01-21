@@ -3,7 +3,7 @@
 That was a part of the UI design of the #100DaysUiChallenge 
 A new Flutter project.
 
-![App Design][assets/ui design flutter.png]
+![App Design][ui design flutter.png]
 
 ## Getting Started
 
