@@ -1,6 +1,9 @@
-# travel_app_ui_flutter
+# Travel_app_ui_flutter
 
+That was a part of the UI design of the #100DaysUiChallenge 
 A new Flutter project.
+
+![App Design][assets/ui design flutter.png]
 
 ## Getting Started
 
