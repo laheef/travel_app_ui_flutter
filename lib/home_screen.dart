@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-final placesImageList = ["assets/mountain 1.png", "assets/mountain 1.png"];
+final placesImageList = ["assets/mountain 1.png", "assets/mount 2.png"];
 final categoriesList = ["Most viewed", "Near by", "Latest"];
 int selectedIndex = -1;
 
@@ -190,129 +190,117 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   scrollDirection: Axis.horizontal,
                   itemCount: placesImageList.length,
-                  shrinkWrap: true,
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailScreen(),
-                            ));
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailScreen(),
+                          ),
+                        );
                       },
                       child: Container(
-                        height: 40,
+                        width: MediaQuery.sizeOf(context).width *
+                            0.6, // Adjust width as needed
                         decoration: BoxDecoration(
                           color: const Color.fromARGB(255, 248, 244, 244),
                           borderRadius: BorderRadius.circular(16),
                         ),
-                        child: Stack(children: [
-                          Image(
-                            image: AssetImage(placesImageList[index]),
-                            fit: BoxFit.cover,
-                          ),
-                          Positioned(
-                            right: 15,
-                            top: 15,
-                            left: 200,
-                            bottom: 335,
-                            child: Container(
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(100)),
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
                               child: Image(
-                                image: AssetImage('assets/heart icon.png'),
+                                image: AssetImage(placesImageList[index]),
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: double.infinity,
                               ),
                             ),
-                          ),
-                          Positioned(
-                            right: 25,
-                            top: 280,
-                            left: 15,
-                            bottom: 30,
-                            child: Container(
-                                height: 20,
-                                width: 20,
+                            Positioned(
+                              right: 15,
+                              top: 15,
+                              child: Container(
+                                height: 40,
+                                width: 40,
                                 decoration: BoxDecoration(
-                                    color: Colors.grey,
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: [
-                                          Color.fromARGB(255, 7, 35, 95),
-                                          Color.fromARGB(255, 2, 90, 141),
-                                        ]),
-                                    borderRadius: BorderRadius.circular(16)),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 15),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(height: 15),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            "Mount Fuji,",
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(100),
+                                ),
+                                child: Image(
+                                  image: AssetImage('assets/heart icon.png'),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              left: 15,
+                              right: 15,
+                              bottom: 15,
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      colors: [
+                                        Color.fromARGB(255, 7, 35, 95),
+                                        Color.fromARGB(255, 2, 90, 141),
+                                      ]),
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Mount Fuji, Tokyo",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(Icons.location_on,
                                                 color: Colors.white),
-                                          ),
-                                          Text(
-                                            "Tokyo",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.white,
+                                            SizedBox(width: 5),
+                                            Text(
+                                              "Tokyo, Japan",
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                      SizedBox(height: 10),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              ImageIcon(
-                                                  color: Colors.white,
-                                                  AssetImage(
-                                                      'assets/location icon.png')),
-                                              SizedBox(width: 5),
-                                              Text(
-                                                "Tokyo, Japan",
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  color: Colors.white,
-                                                ),
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.star,
+                                                color: Colors.white),
+                                            Text(
+                                              "4.8",
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.white,
                                               ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              ImageIcon(
-                                                  color: Colors.white,
-                                                  AssetImage(
-                                                      'assets/Vector.png')),
-                                              Text(
-                                                "4.8",
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                )),
-                          ),
-                        ]),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
